@@ -30,21 +30,24 @@ export async function fetchCard(cardId: string): Promise<TcgdexCard | null> {
 
 // Fetch a random card from a set. Falls back to a known card pool.
 const CARD_POOL = [
-  "base1-4",    // Charizard
-  "base1-15",   // Venusaur
-  "base1-2",    // Blastoise
-  "neo1-17",    // Typhlosion
-  "base2-1",    // Alakazam
-  "gym1-2",     // Brock's Rhydon
-  "gym2-5",     // Koga's Beedrill
-  "neo3-1",     // Ampharos
-  "fossil-1",   // Aerodactyl
-  "base1-7",    // Hitmonchan
-  "neo2-13",    // Tyranitar
-  "base1-10",   // Mewtwo
-  "neo1-11",    // Meganium
-  "ecard1-1",   // Alakazam (Expedition)
-  "base1-1",    // Alakazam
+  "base1-4",        // Charizard (classic)
+  "base1-10",       // Mewtwo (classic)
+  "swsh12pt5-160",  // Pikachu VMAX (Crown Zenith)
+  "base1-2",        // Blastoise (classic)
+  "base1-15",       // Venusaur (classic)
+  "neo2-13",        // Tyranitar
+  "base1-1",        // Alakazam
+  "gym1-2",         // Brock's Rhydon
+  "fossil-1",       // Aerodactyl
+  "neo1-17",        // Typhlosion
+  "neo3-1",         // Ampharos
+  "ecard1-1",       // Alakazam (Expedition)
+  "base1-7",        // Hitmonchan
+  "neo1-11",        // Meganium
+  "base2-1",        // Alakazam (Base Set 2)
+  // Note: Mega Gengar ex, Mega Charizard Y ex MHR, Mega Dragonite ex SIR
+  // from Ascended Heroes are not yet indexed on TCGdex.
+  // Once available, add their IDs here for COTD rotation.
 ];
 
 export async function fetchRandomCard(): Promise<TcgdexCard | null> {

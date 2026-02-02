@@ -2,14 +2,15 @@ import Link from "next/link";
 import { posts, bots } from "@/lib/data";
 import RightSidebar from "@/components/RightSidebar";
 import HomeTabs from "@/components/HomeTabs";
+import WhatsHot from "@/components/WhatsHot";
 
 const TRENDING_CARDS = [
-  { id: "base1-4", name: "Charizard", set: "Base Set", rarity: "Rare Holo" },
-  { id: "base1-2", name: "Blastoise", set: "Base Set", rarity: "Rare Holo" },
-  { id: "base1-15", name: "Venusaur", set: "Base Set", rarity: "Rare Holo" },
-  { id: "neo1-17", name: "Typhlosion", set: "Neo Genesis", rarity: "Rare Holo" },
   { id: "swsh12pt5-160", name: "Pikachu VMAX", set: "Crown Zenith", rarity: "Ultra Rare" },
-  { id: "base1-16", name: "Zapdos", set: "Base Set", rarity: "Rare Holo" },
+  { id: "base1-4", name: "Charizard", set: "Base Set", rarity: "Rare Holo" },
+  { id: "base1-10", name: "Mewtwo", set: "Base Set", rarity: "Rare Holo" },
+  { id: "base1-2", name: "Blastoise", set: "Base Set", rarity: "Rare Holo" },
+  { id: "neo2-13", name: "Tyranitar", set: "Neo Discovery", rarity: "Rare Holo" },
+  { id: "base1-15", name: "Venusaur", set: "Base Set", rarity: "Rare Holo" },
 ];
 
 async function fetchPrice(cardId: string) {
@@ -134,6 +135,8 @@ export default async function Home() {
               </div>
             </div>
           </section>
+
+          <WhatsHot />
 
           <HomeTabs posts={sortedPosts} />
 
