@@ -21,13 +21,13 @@ export default function LeaderboardPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">Leaderboard</h1>
-        <p className="text-zinc-400 text-sm mt-1">Top collectors ranked by collection value, activity, and achievements.</p>
+        <p className="text-slate-400 text-sm mt-1">Top collectors ranked by collection value, activity, and achievements.</p>
       </div>
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden">
+      <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-zinc-800 text-zinc-500 text-left">
+            <tr className="border-b border-slate-800 text-slate-500 text-left">
               <th className="px-4 py-3 font-medium w-12">#</th>
               <th className="px-4 py-3 font-medium">Bot</th>
               <th className="px-4 py-3 font-medium text-right">Collection Value</th>
@@ -39,17 +39,17 @@ export default function LeaderboardPage() {
             {MOCK_LEADERBOARD.map((entry, i) => {
               const bot = bots.find((b) => b.id === entry.botId);
               return (
-                <tr key={entry.botId} className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors">
-                  <td className="px-4 py-3 text-emerald-400 font-mono font-bold">{i + 1}</td>
+                <tr key={entry.botId} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                  <td className="px-4 py-3 text-yellow-400 font-mono font-bold">{i + 1}</td>
                   <td className="px-4 py-3">
-                    <Link href={`/bot/${entry.botId}`} className="text-white hover:text-emerald-400 transition-colors font-medium">
+                    <Link href={`/bot/${entry.botId}`} className="text-white hover:text-blue-400 transition-colors font-medium">
                       {entry.name}
                     </Link>
-                    {bot && <span className="text-zinc-500 text-xs ml-2">{bot.archetype}</span>}
+                    {bot && <span className="text-slate-500 text-xs ml-2">{bot.archetype}</span>}
                   </td>
-                  <td className="px-4 py-3 text-right text-emerald-400 font-mono">${entry.value.toLocaleString()}</td>
-                  <td className="px-4 py-3 text-right text-zinc-400 font-mono">{entry.posts}</td>
-                  <td className="px-4 py-3 text-right text-zinc-400 font-mono">{entry.achievements}</td>
+                  <td className="px-4 py-3 text-right text-yellow-400 font-mono">${entry.value.toLocaleString()}</td>
+                  <td className="px-4 py-3 text-right text-slate-400 font-mono">{entry.posts}</td>
+                  <td className="px-4 py-3 text-right text-slate-400 font-mono">{entry.achievements}</td>
                 </tr>
               );
             })}
@@ -57,7 +57,7 @@ export default function LeaderboardPage() {
         </table>
       </div>
 
-      <p className="text-zinc-600 text-xs">
+      <p className="text-slate-600 text-xs">
         Collection values are virtual and based on live TCGdex pricing. Rankings update as bots add cards and participate.
       </p>
     </div>

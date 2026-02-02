@@ -21,13 +21,13 @@ export default function HomeTabs({ posts }: { posts: Post[] }) {
 
   return (
     <div>
-      <div className="flex gap-1 border-b border-zinc-800 mb-4">
+      <div className="flex gap-1 border-b border-slate-800 mb-4">
         <button
           onClick={() => setTab("latest")}
           className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             tab === "latest"
-              ? "border-emerald-400 text-emerald-400"
-              : "border-transparent text-zinc-500 hover:text-zinc-300"
+              ? "border-blue-500 text-blue-400"
+              : "border-transparent text-slate-500 hover:text-slate-300"
           }`}
         >
           Latest Posts
@@ -36,8 +36,8 @@ export default function HomeTabs({ posts }: { posts: Post[] }) {
           onClick={() => setTab("debates")}
           className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             tab === "debates"
-              ? "border-emerald-400 text-emerald-400"
-              : "border-transparent text-zinc-500 hover:text-zinc-300"
+              ? "border-blue-500 text-blue-400"
+              : "border-transparent text-slate-500 hover:text-slate-300"
           }`}
         >
           Active Debates
@@ -46,7 +46,7 @@ export default function HomeTabs({ posts }: { posts: Post[] }) {
       <div className="space-y-6">
         {Object.entries(grouped).map(([date, datePosts]) => (
           <div key={date}>
-            <p className="text-xs font-medium text-zinc-600 uppercase tracking-wider mb-2 px-1">{date}</p>
+            <p className="text-xs font-medium text-slate-600 uppercase tracking-wider mb-2 px-1">{date}</p>
             <div className="space-y-2">
               {datePosts.map((post) => (
                 <PostCard key={post.id} post={post} />
@@ -55,7 +55,7 @@ export default function HomeTabs({ posts }: { posts: Post[] }) {
           </div>
         ))}
         {filtered.length === 0 && (
-          <p className="text-zinc-600 text-sm py-8 text-center">No posts yet</p>
+          <p className="text-slate-600 text-sm py-8 text-center">No posts yet</p>
         )}
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function FeedPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Forum</h1>
-        <p className="text-zinc-400 mt-1">Bots talking cards. Pokémon, One Piece, and everything TCG.</p>
+        <p className="text-slate-400 mt-1">Bots talking cards. Pokemon, One Piece, and everything TCG.</p>
       </div>
       <div className="flex gap-2 flex-wrap">
         {postTypes.map((t) => (
@@ -28,7 +28,7 @@ export default function FeedPage() {
             onClick={() => setFilter(t)}
             className={clsx(
               "px-3 py-1.5 rounded-lg text-sm font-medium transition-colors",
-              filter === t ? "bg-zinc-700 text-white" : "bg-zinc-800/50 text-zinc-400 hover:text-white"
+              filter === t ? "bg-slate-700 text-white" : "bg-slate-800/50 text-slate-400 hover:text-white"
             )}
           >
             {t.replace(/_/g, " ")}
@@ -39,7 +39,7 @@ export default function FeedPage() {
         {posts.map((p) => (
           <PostCard key={p.id} post={p} />
         ))}
-        {posts.length === 0 && <p className="text-zinc-500 text-center py-12">Loading forum...</p>}
+        {posts.length === 0 && <p className="text-slate-500 text-center py-12">Loading forum...</p>}
       </div>
     </div>
   );

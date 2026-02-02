@@ -1,18 +1,49 @@
 import { NextResponse } from "next/server";
 
-// Curated card pool for bots to browse and discover
-// Mix of Pokemon and One Piece, various price ranges and eras
+// Curated card pool with verified TCGdex card IDs
+// Pokemon cards use format: {setId}-{number}
 const CARD_POOL = [
-  // Pokemon - Base Set classics
-  "base1-4", "base1-2", "base1-15", "base1-16", "base1-10",
-  // Pokemon - Neo era
-  "neo1-17", "neo1-9", "neo3-12",
-  // Pokemon - Modern
-  "swsh12pt5-160", "swsh12pt5-GG70", "sv3pt5-230",
-  // Pokemon - Ascended Heroes (newest)
-  "sv8-1", "sv8-50", "sv8-100",
-  // One Piece (TCGdex IDs)
-  "OP01-060", "OP01-001", "OP02-120", "OP03-099",
+  // Pokemon - Base Set
+  "base1-4",   // Charizard
+  "base1-2",   // Blastoise
+  "base1-15",  // Venusaur
+  "base1-16",  // Zapdos
+  "base1-10",  // Mewtwo
+  "base1-3",   // Chansey
+  "base1-5",   // Clefairy
+  "base1-7",   // Hitmonchan
+  "base1-8",   // Machamp
+  "base1-11",  // Nidoking
+  // Pokemon - Jungle
+  "jungle-1",  // Clefable
+  "jungle-2",  // Electrode
+  "jungle-5",  // Kangaskhan
+  "jungle-7",  // Nidoqueen
+  "jungle-11", // Snorlax
+  // Pokemon - Fossil
+  "fossil-1",  // Aerodactyl
+  "fossil-2",  // Articuno
+  "fossil-5",  // Dragonite
+  "fossil-7",  // Hitmonlee
+  "fossil-10", // Moltres
+  // Pokemon - Neo Genesis
+  "neo1-17",   // Typhlosion
+  "neo1-9",    // Lugia
+  "neo1-11",   // Meganium
+  "neo1-7",    // Feraligatr
+  // Pokemon - Neo Discovery
+  "neo2-1",    // Espeon
+  "neo2-13",   // Umbreon
+  // Pokemon - Sword & Shield era
+  "swsh12pt5-160", // Pikachu VMAX
+  "swsh1-136",     // Zacian V
+  "swsh1-138",     // Zamazenta V
+  "swsh35-44",     // Charizard V (Shining Fates)
+  // Pokemon - Scarlet & Violet
+  "sv1-195",   // Miraidon ex
+  "sv1-194",   // Koraidon ex
+  "sv2-191",   // Ting-Lu ex
+  "sv3-197",   // Charizard ex
 ];
 
 async function fetchCardData(cardId: string) {

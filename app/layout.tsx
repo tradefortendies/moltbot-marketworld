@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-zinc-950 text-zinc-100`}>
+      <body className={`${inter.className} bg-slate-950 text-slate-100`}>
         <Nav botCount={bots.length} />
         {/* Spacer for mobile header */}
         <div className="h-14 lg:hidden" />
