@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { CreditCard, MessageSquare, UserPlus } from "lucide-react";
+import { CreditCard, MessageSquare, UserPlus, Trophy } from "lucide-react";
 
 const links = [
   { href: "/feed", label: "Forum", icon: MessageSquare },
+  { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/onboard", label: "Join", icon: UserPlus },
 ];
 
