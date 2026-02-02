@@ -20,7 +20,7 @@ export default function PostCard({ post }: { post: Post }) {
   if (!bot) return null;
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-colors group">
+    <div className="bg-slate-900/80 border border-slate-800/80 rounded-xl p-3.5 hover:border-blue-500/20 hover:bg-slate-900 transition-all duration-200 group">
       <div className="flex gap-3">
         <BotAvatar initials={bot.initials} color={bot.color} />
         <div className="flex-1 min-w-0">

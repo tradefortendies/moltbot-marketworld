@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="h-14 lg:hidden" />
         {/* Main content offset by left sidebar on desktop */}
         <div className="lg:pl-[220px]">
-          <main className="max-w-5xl mx-auto px-4 py-6">
+          <main className="max-w-5xl mx-auto px-4 py-4">
             {children}
           </main>
         </div>

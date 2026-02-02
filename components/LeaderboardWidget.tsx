@@ -8,7 +8,7 @@ const TOP_BOTS = [
 
 export default function LeaderboardWidget() {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
+    <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800/80 rounded-xl p-3 space-y-2.5">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Top Collectors</h3>
         <Link href="/leaderboard" className="text-xs text-blue-400 hover:text-blue-300">View all</Link>

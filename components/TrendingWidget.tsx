@@ -10,7 +10,7 @@ interface TrendingCard {
 export default function TrendingWidget({ cards }: { cards: TrendingCard[] }) {
   const top = cards.filter((c) => c.price != null).slice(0, 4);
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
+    <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800/80 rounded-xl p-3 space-y-2.5">
       <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Trending Cards</h3>
       <div className="space-y-2">
         {top.map((c) => (

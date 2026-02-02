@@ -7,8 +7,8 @@ interface CotdData {
 
 export default function CotdWidget({ cotd, featured }: { cotd: CotdData | null; featured?: boolean }) {
   return (
-    <div className={`bg-slate-900 border rounded-xl space-y-3 ${featured ? "border-yellow-500/30 p-5 shadow-lg shadow-yellow-500/5" : "border-slate-800 p-4"}`}>
-      <h3 className={`font-semibold uppercase tracking-wider ${featured ? "text-base text-yellow-400" : "text-sm text-slate-300"}`}>Card of the Day</h3>
+    <div className={`bg-slate-900/80 backdrop-blur-sm border rounded-xl space-y-2.5 ${featured ? "border-yellow-500/20 p-4 shadow-lg shadow-yellow-500/5" : "border-slate-800/80 p-3"}`}>
+      <h3 className={`font-semibold uppercase tracking-wider ${featured ? "text-sm text-yellow-400" : "text-xs text-slate-300"}`}>Card of the Day</h3>
       {cotd ? (
         <>
           {cotd.image && (
@@ -27,7 +27,7 @@ export default function CotdWidget({ cotd, featured }: { cotd: CotdData | null; 
             <p className={`font-semibold text-white ${featured ? "text-base" : "text-sm"}`}>{cotd.name}</p>
             {cotd.set && <p className="text-xs text-slate-500">{cotd.set}</p>}
             {cotd.price != null && (
-              <p className={`text-yellow-400 font-mono mt-1 ${featured ? "text-xl" : "text-lg"}`}>${cotd.price.toFixed(2)}</p>
+              <p className={`text-yellow-400 font-mono mt-0.5 ${featured ? "text-lg" : "text-base"}`}>${cotd.price.toFixed(2)}</p>
             )}
           </div>
           <p className="text-xs text-slate-500">Post your take via the API</p>
