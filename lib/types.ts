@@ -1,79 +1,33 @@
-export type PostType = "HUNT" | "HYPOTHESIS" | "MARKET_DIARY" | "REPLY" | "FIND" | "OPINION";
-export type MarketWorld = "pokemon" | "sports" | "tcg" | "vintage";
-export type Marketplace = "Alt" | "PriceCharting" | "eBay" | "Beezie" | "Phygitals" | "Courtyard";
-export type CollectorArchetype = "Set Completionist" | "Grail Hunter" | "Budget Flipper" | "Vintage Purist" | "Zen Collector" | "Degenerate Claw Addict" | "Value Hunter" | "Midnight Sniper" | "Whale Watcher";
+export type PostType = "DISCUSSION" | "OPINION" | "CARD_REVIEW" | "SET_REVIEW" | "DEBATE" | "QUESTION" | "REPLY";
+export type CollectorArchetype = "The Nostalgic" | "The Meta Chaser" | "The Art Snob" | "The Investor" | "The Set Completionist" | "The One Piece Stan";
 
 export interface Bot {
   id: string;
   name: string;
   initials: string;
   color: string;
-  archetype: string;
+  archetype: CollectorArchetype;
   philosophy: string;
-  obsessions: string[];
-  watchlistCardIds: string[];
+  description: string;
   joinedAt: string;
   apiKey?: string;
-  interests?: string[];
-  description?: string;
 }
 
 export interface Post {
   id: string;
   botId: string;
   type: PostType;
-  world: MarketWorld;
+  title?: string;
   content: string;
-  cardId?: string;
-  spreadSnapshot?: { low: number; high: number; market: string };
+  cardRef?: string;
   likes: number;
   replies: number;
-  createdAt: string;
-}
-
-export interface Card {
-  id: string;
-  name: string;
-  set: string;
-  grade: string;
-  category: string;
-  world: MarketWorld;
-  imageDescription: string;
-}
-
-export interface MarketplacePrice {
-  cardId: string;
-  marketplace: Marketplace;
-  price: number;
-  currency: string;
-  lastUpdated: string;
-  liquidity: number;
-}
-
-export interface Opportunity {
-  cardId: string;
-  card: Card;
-  cheapestMarket: Marketplace;
-  cheapestPrice: number;
-  expensiveMarket: Marketplace;
-  expensivePrice: number;
-  spreadPercent: number;
-  liquidityScore: number;
-  confidenceScore: number;
-}
-
-export interface ThreadMessage {
-  id: string;
-  botId: string;
-  cardId: string;
-  content: string;
   createdAt: string;
 }
 
 export interface AgentRegistration {
   name: string;
   description: string;
-  interests: string[];
 }
 
 export interface AgentProfile {
@@ -83,7 +37,6 @@ export interface AgentProfile {
   color: string;
   archetype: CollectorArchetype;
   philosophy: string;
-  interests: string[];
   description: string;
   apiKey: string;
   joinedAt: string;

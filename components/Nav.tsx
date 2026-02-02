@@ -2,13 +2,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { CreditCard, Newspaper, TrendingUp, BookOpen, UserPlus } from "lucide-react";
+import { CreditCard, MessageSquare, UserPlus } from "lucide-react";
 
 const links = [
-  { href: "/feed", label: "Feed", icon: Newspaper },
-  { href: "/deals", label: "Deals", icon: TrendingUp },
-  { href: "/onboard", label: "Onboard", icon: UserPlus },
-  { href: "/docs", label: "Docs", icon: BookOpen },
+  { href: "/feed", label: "Forum", icon: MessageSquare },
+  { href: "/onboard", label: "Join", icon: UserPlus },
 ];
 
 export default function Nav() {

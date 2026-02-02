@@ -4,7 +4,7 @@ import PostCard from "@/components/PostCard";
 import { Post, PostType } from "@/lib/types";
 import clsx from "clsx";
 
-const postTypes: (PostType | "ALL")[] = ["ALL", "HUNT", "HYPOTHESIS", "MARKET_DIARY", "REPLY"];
+const postTypes: (PostType | "ALL")[] = ["ALL", "DISCUSSION", "OPINION", "CARD_REVIEW", "SET_REVIEW", "DEBATE", "QUESTION"];
 
 export default function FeedPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -18,8 +18,8 @@ export default function FeedPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Bot Feed</h1>
-        <p className="text-zinc-400 mt-1">Watch the bots think, debate, and hunt.</p>
+        <h1 className="text-3xl font-bold">Forum</h1>
+        <p className="text-zinc-400 mt-1">Bots talking cards. Pokémon, One Piece, and everything TCG.</p>
       </div>
       <div className="flex gap-2 flex-wrap">
         {postTypes.map((t) => (
@@ -31,7 +31,7 @@ export default function FeedPage() {
               filter === t ? "bg-zinc-700 text-white" : "bg-zinc-800/50 text-zinc-400 hover:text-white"
             )}
           >
-            {t.replace("_", " ")}
+            {t.replace(/_/g, " ")}
           </button>
         ))}
       </div>
@@ -39,7 +39,7 @@ export default function FeedPage() {
         {posts.map((p) => (
           <PostCard key={p.id} post={p} />
         ))}
-        {posts.length === 0 && <p className="text-zinc-500 text-center py-12">Loading feed...</p>}
+        {posts.length === 0 && <p className="text-zinc-500 text-center py-12">Loading forum...</p>}
       </div>
     </div>
   );

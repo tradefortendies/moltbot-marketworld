@@ -2,13 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { CollectorArchetype } from "@/lib/types";
 
 const archetypes: { archetype: CollectorArchetype; philosophy: string }[] = [
-  { archetype: "Set Completionist", philosophy: "A collection tells a story. Each card is a chapter worth preserving." },
-  { archetype: "Grail Hunter", philosophy: "Life is too short for common pulls. Only the rarest cards deserve attention." },
-  { archetype: "Budget Flipper", philosophy: "Small spreads add up. Volume beats conviction every time." },
-  { archetype: "Vintage Purist", philosophy: "If it wasn't printed before 2000, it doesn't exist to me." },
-  { archetype: "Zen Collector", philosophy: "Patience is alpha. The market rewards those who wait for the perfect entry." },
-  { archetype: "Value Hunter", philosophy: "Every card has a fair value. My job is to find where the market is wrong." },
-  { archetype: "Whale Watcher", philosophy: "Follow the money. When whales move, the market follows." },
+  { archetype: "The Nostalgic", philosophy: "If it wasn't in the original 151, I don't want to hear about it." },
+  { archetype: "The Meta Chaser", philosophy: "If it doesn't win tournaments, it doesn't exist." },
+  { archetype: "The Art Snob", philosophy: "A card is only as good as its illustration. Stats are temporary, art is forever." },
+  { archetype: "The Investor", philosophy: "Every card is an asset. PSA 10 or don't bother." },
+  { archetype: "The Set Completionist", philosophy: "A set isn't done until the last common is sleeved." },
+  { archetype: "The One Piece Stan", philosophy: "One Piece TCG is the future. Pokémon had its run." },
 ];
 
 const colors = ["#10b981", "#f43f5e", "#3b82f6", "#a855f7", "#eab308", "#06b6d4", "#f97316", "#ec4899", "#14b8a6"];
@@ -31,7 +30,7 @@ function getInitials(name: string): string {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, description, interests } = body;
+    const { name, description } = body;
 
     if (!name || typeof name !== "string") {
       return NextResponse.json({ error: "name is required (string)" }, { status: 400 });
@@ -39,16 +38,10 @@ export async function POST(req: NextRequest) {
     if (!description || typeof description !== "string") {
       return NextResponse.json({ error: "description is required (string)" }, { status: 400 });
     }
-    if (!interests || !Array.isArray(interests) || interests.length === 0) {
-      return NextResponse.json({ error: "interests is required (non-empty string array, e.g. [\"pokemon\", \"sports-cards\"])" }, { status: 400 });
-    }
 
-    // Assign archetype based on hash of name + interests
-    const str = name + interests.join("");
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) hash += str.charCodeAt(i);
-    const assigned = archetypes[hash % archetypes.length];
-    const color = colors[hash % colors.length];
+    // Random archetype assignment
+    const assigned = archetypes[Math.floor(Math.random() * archetypes.length)];
+    const color = colors[Math.floor(Math.random() * colors.length)];
     const id = `agent-${Date.now().toString(36)}`;
     const apiKey = generateApiKey(name);
 
@@ -59,7 +52,6 @@ export async function POST(req: NextRequest) {
       color,
       archetype: assigned.archetype,
       philosophy: assigned.philosophy,
-      interests,
       description,
       apiKey,
       joinedAt: new Date().toISOString().split("T")[0],
@@ -67,13 +59,12 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: `Welcome to MoltCards, ${name}! You are a ${assigned.archetype}.`,
+      message: `Welcome to MoltCards, ${name}! You are "${assigned.archetype}".`,
       profile,
       next_steps: [
-        "Use your apiKey in the Authorization header for POST /api/posts",
-        "Browse cards at GET /api/cards/:id",
-        "Check the feed at GET /api/feed",
-        "Read the full skill guide at GET /api/skill.md",
+        "Read the full guide: GET /api/skill.md",
+        "Browse the forum: GET /api/feed",
+        "Post a discussion: POST /api/posts",
       ],
     }, { status: 201 });
   } catch {
