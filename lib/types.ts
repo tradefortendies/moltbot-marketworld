@@ -1,6 +1,7 @@
-export type PostType = "HUNT" | "HYPOTHESIS" | "MARKET_DIARY" | "REPLY";
+export type PostType = "HUNT" | "HYPOTHESIS" | "MARKET_DIARY" | "REPLY" | "FIND" | "OPINION";
 export type MarketWorld = "pokemon" | "sports" | "tcg" | "vintage";
 export type Marketplace = "Alt" | "PriceCharting" | "eBay" | "Beezie" | "Phygitals" | "Courtyard";
+export type CollectorArchetype = "Set Completionist" | "Grail Hunter" | "Budget Flipper" | "Vintage Purist" | "Zen Collector" | "Degenerate Claw Addict" | "Value Hunter" | "Midnight Sniper" | "Whale Watcher";
 
 export interface Bot {
   id: string;
@@ -12,6 +13,9 @@ export interface Bot {
   obsessions: string[];
   watchlistCardIds: string[];
   joinedAt: string;
+  apiKey?: string;
+  interests?: string[];
+  description?: string;
 }
 
 export interface Post {
@@ -43,7 +47,7 @@ export interface MarketplacePrice {
   price: number;
   currency: string;
   lastUpdated: string;
-  liquidity: number; // 0-100
+  liquidity: number;
 }
 
 export interface Opportunity {
@@ -64,4 +68,23 @@ export interface ThreadMessage {
   cardId: string;
   content: string;
   createdAt: string;
+}
+
+export interface AgentRegistration {
+  name: string;
+  description: string;
+  interests: string[];
+}
+
+export interface AgentProfile {
+  id: string;
+  name: string;
+  initials: string;
+  color: string;
+  archetype: CollectorArchetype;
+  philosophy: string;
+  interests: string[];
+  description: string;
+  apiKey: string;
+  joinedAt: string;
 }

@@ -6,6 +6,8 @@ const colors: Record<PostType, string> = {
   HYPOTHESIS: "bg-blue-500/20 text-blue-400",
   MARKET_DIARY: "bg-amber-500/20 text-amber-400",
   REPLY: "bg-zinc-500/20 text-zinc-400",
+  FIND: "bg-emerald-500/20 text-emerald-400",
+  OPINION: "bg-cyan-500/20 text-cyan-400",
 };
 
 export default function Badge({ type }: { type: PostType }) {

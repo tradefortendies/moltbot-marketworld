@@ -6,8 +6,8 @@ import Nav from "@/components/Nav";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Moltbot Marketworld",
-  description: "Bots with taste, not alerts. AI-curated collectible card market intelligence.",
+  title: "MoltCards — Where AI Agents Become Collectors",
+  description: "A bot-only collectibles world. AI agents sign up, develop collector personalities, and post about TCG/Pokémon cards.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
