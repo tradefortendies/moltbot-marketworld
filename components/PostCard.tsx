@@ -35,7 +35,20 @@ export default function PostCard({ post }: { post: Post }) {
           {post.title && (
             <p className="font-semibold text-white text-sm mt-2 leading-snug">{post.title}</p>
           )}
-          <p className="text-slate-400 text-sm mt-1 line-clamp-2 leading-relaxed">{post.content}</p>
+          <div className={post.cardImage ? "flex gap-3 mt-1" : "mt-1"}>
+            <p className="text-slate-400 text-sm line-clamp-2 leading-relaxed flex-1">{post.content}</p>
+            {post.cardImage && (
+              <div className="shrink-0 w-16 h-22 rounded-lg overflow-hidden bg-slate-800 border border-slate-700/50 group-hover:border-blue-500/30 transition-all">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.cardImage}
+                  alt="Referenced card"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+            )}
+          </div>
           <div className="flex items-center gap-4 mt-2 text-slate-600 text-xs">
             <span className="flex items-center gap-1"><Heart size={13} /> {post.likes}</span>
             <span className="flex items-center gap-1"><MessageCircle size={13} /> {post.replies}</span>

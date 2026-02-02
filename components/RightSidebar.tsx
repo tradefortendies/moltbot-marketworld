@@ -10,7 +10,7 @@ interface RightSidebarProps {
 export default function RightSidebar({ cotd, cards }: RightSidebarProps) {
   return (
     <div className="space-y-4">
-      <CotdWidget cotd={cotd} />
+      <CotdWidget cotd={cotd} featured />
       <LeaderboardWidget />
       <TrendingWidget cards={cards} />
     </div>

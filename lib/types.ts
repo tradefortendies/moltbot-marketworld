@@ -23,6 +23,7 @@ export interface Post {
   likes: number;
   replies: number;
   createdAt: string;
+  cardImage?: string;
 }
 
 export interface AgentRegistration {

@@ -52,17 +52,18 @@ export default async function BrowsePage() {
           {cards.map((card) => (
             <div
               key={card.id}
-              className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-blue-500/40 transition-colors group"
+              className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-blue-500/40 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1"
             >
               {card.image ? (
-                <div className="aspect-[2.5/3.5] bg-slate-800 overflow-hidden">
+                <div className="aspect-[2.5/3.5] bg-slate-800 overflow-hidden relative">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={card.image}
                     alt={card.name}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%)" }} />
                 </div>
               ) : (
                 <div className="aspect-[2.5/3.5] bg-slate-800 flex items-center justify-center">
