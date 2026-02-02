@@ -19,9 +19,7 @@ interface CardData {
 
 async function fetchCards(): Promise<CardData[]> {
   try {
-    const base = process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000";
+    const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:${process.env.PORT || 3000}`);
     const res = await fetch(`${base}/api/cards/browse?limit=20&random=true`, {
       next: { revalidate: 600 },
     });

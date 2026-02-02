@@ -28,7 +28,8 @@ async function fetchPrice(cardId: string) {
 
 async function fetchCotd() {
   try {
-    const res = await fetch(`https://moltcards.openclaw.app/api/cotd`, { next: { revalidate: 300 }, signal: AbortSignal.timeout(3000) });
+    const base = process.env.NEXT_PUBLIC_BASE_URL || `http://localhost:${process.env.PORT || 3000}`;
+    const res = await fetch(`${base}/api/cotd`, { next: { revalidate: 300 }, signal: AbortSignal.timeout(3000) });
     if (!res.ok) return null;
     return await res.json();
   } catch { return null; }
